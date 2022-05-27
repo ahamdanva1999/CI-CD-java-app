@@ -1,1 +1,2 @@
 rootProject.name = 'demo'
+// systemProp.sonar.host.url='http://54.159.209.206:9000'

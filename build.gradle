@@ -1,4 +1,4 @@
-plugins {
+plugins{
 	id 'org.springframework.boot' version '2.6.7'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
@@ -21,6 +21,17 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-// gradleEnterprise() {
-//     server = "https://gradle-enterprise.project.com"
-// }
+sonarqube {
+    properties {
+    property "sonar.host.url", "http://54.159.209.206:9000"
+    property "sonar.login", "5d6aeccb8e4005321468433012e192163b40890e"
+
+    property "sonar.projectName", "demo-project"
+    property "sonar.projectKey", "demo-project"
+    }
+  }
+
+// Build should fail if coverage less than minimum.
+// jacocoTestCoverageVerification.dependsOn jacocoTestReport
+// build.finalizedBy jacocoTestCoverageVerification
+
